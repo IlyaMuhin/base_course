@@ -1,0 +1,5 @@
+mon=int(input())
+sysbl=int(input())
+klav=int(input())
+mysh=int(input())
+print(3*(mon+sysbl+klav+mysh))
