@@ -7,6 +7,3 @@ for i in range(len(str(a))):
     c+=a1*10**d
     d-=1
 print(c)
-    
-
-    
