@@ -21,5 +21,3 @@ student1 = SchoolJournal('math', 'Илья')
 student1.grade()
 print("Оценки:", student1.grade_list)
 student1.final_grade()
-
-
