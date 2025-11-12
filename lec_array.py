@@ -7,6 +7,7 @@ b = np.array(a)
 print(type(a))
 print(type(b))
 
+
 print(b * b)
 print(b / b)
 print(b - b)
