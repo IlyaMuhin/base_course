@@ -1,4 +1,3 @@
-import numpy as np
 states = {1: "Болеет", 2: "Выздоравливает", 3: "Здоров"}
 class Puppy:
     def __init__(self, index):
@@ -16,11 +15,7 @@ class Puppy:
         if self.state == states[3]:
             self.health = True
         else:
-            self.health = False
-
-# pup = Puppy(1)
-# pup.get_treatment()
-# print(pup.state)            
+            self.health = False           
         
 
 
@@ -41,15 +36,12 @@ class Dog:
             puppy.is_healthy()
             if puppy.health == False:
                 self.allhealth = False
-        print(self.allhealth)
+            else:
+                self.allhealth = True
             
     def give_away_all(self):
         self.puppies = []
 dog = Dog(3)
-# dog.all_are_healthy()
-# dog.heal_all()
-# print(Puppy(1).state)
-# print(dog.puppies)
 
 
 
@@ -69,23 +61,14 @@ class Vet:
             print("Не все щенки вылечились!")
     def knowledge_base(self):
         for puppy in self.plant.puppies:
-            print(puppy.state)
+            print(f'Щенок{puppy.index}:{puppy.state}')
 vet = Vet("Виталий")
 vet.knowledge_base()
 vet.work()
 vet.care()
 vet.work()
 vet.care()
-vet.work()
-vet.care()
-
 vet.knowledge_base()
-vet.work()
-vet.knowledge_base()
-vet.work()
-vet.knowledge_base()
-
-    
 
 
 
