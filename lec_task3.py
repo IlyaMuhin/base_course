@@ -18,9 +18,9 @@ class Puppy:
         else:
             self.health = False
 
-pup = Puppy(1)
-pup.get_treatment()
-print(pup.state)            
+# pup = Puppy(1)
+# pup.get_treatment()
+# print(pup.state)            
         
 
 
@@ -46,10 +46,10 @@ class Dog:
     def give_away_all(self):
         self.puppies = []
 dog = Dog(3)
-dog.all_are_healthy()
-dog.heal_all()
-print(Puppy(1).state)
-print(dog.puppies)
+# dog.all_are_healthy()
+# dog.heal_all()
+# print(Puppy(1).state)
+# print(dog.puppies)
 
 
 
@@ -70,20 +70,20 @@ class Vet:
     def knowledge_base(self):
         for puppy in self.plant.puppies:
             print(puppy.state)
-# vet = Vet("Виталий")
-# vet.knowledge_base()
-# vet.work()
-# vet.care()
-# vet.work()
-# vet.care()
-# vet.work()
-# vet.care()
+vet = Vet("Виталий")
+vet.knowledge_base()
+vet.work()
+vet.care()
+vet.work()
+vet.care()
+vet.work()
+vet.care()
 
-# vet.knowledge_base()
-# dog.heal_all()
-# vet.knowledge_base()
-# vet.work()
-# vet.knowledge_base()
+vet.knowledge_base()
+vet.work()
+vet.knowledge_base()
+vet.work()
+vet.knowledge_base()
 
     
 
