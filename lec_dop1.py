@@ -40,7 +40,7 @@ class Castle:
         self.index = index
         self.hp = 10000
         self.money = 5000
-        self.army = []
+        self.army = [] 
 
 
 class Player:
@@ -58,6 +58,9 @@ class Player:
                 print("Успешно!")
                 Castle(self.color).army.append(Warrior(self.choice,i+1))
                 Castle(self.color).money -= Warrior(self.choice,1).price * self.kol
+                print(Castle(self.color).money)
+                print(Warrior(self.choice,1).price)
+                print(Castle(self.color).money-Warrior(self.choice,1).price)
                 print(f'Осталось денег:{Castle(self.color).money}')
             else:
                 print("Недостаточно денег!")
