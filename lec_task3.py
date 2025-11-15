@@ -63,12 +63,12 @@ class Vet:
         for puppy in self.plant.puppies:
             print(f'Щенок{puppy.index}:{puppy.state}')
 vet = Vet("Виталий")
-vet.knowledge_base()
-vet.work()
-vet.care()
-vet.work()
-vet.care()
-vet.knowledge_base()
+# vet.knowledge_base()
+# vet.work()
+# vet.care()
+# vet.work()
+# vet.care()
+# vet.knowledge_base()
 
 
 
