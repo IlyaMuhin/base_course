@@ -6,5 +6,5 @@ def middle(a):
 
     print(sum(a) / len(a))
 
-middle(a = np.array)
+middle(a)
 
