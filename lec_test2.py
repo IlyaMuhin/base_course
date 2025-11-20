@@ -6,8 +6,12 @@ for i in range(len1):
 
 
 def middle(a):
+    proizv = 1
+    for x in range(len1):
+        
+        proizv *= a[x]
+    print(proizv)
 
-    print(int(np.prod(a)))
 
 middle(a)
 

@@ -6,8 +6,10 @@ for i in range(len1):
 
 
 def middle(a):
-
-    print(sum(a) / len(a))
+    sum = 0
+    for x in range(len1):
+        sum+=a[x]
+    print(sum / len1)
 
 middle(a)
 
