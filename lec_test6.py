@@ -7,4 +7,9 @@ slice2 = massive[1:3, 3:5]
 print(slice2)
 slice3 = massive[0:3, 5:6]
 print(slice3)
-slice
+slice4 = massive[4, 0:2]
+print(slice4)
+slice5 = massive[3::, 2:4]
+print(slice5)
+slice6 = massive[3, 5::]
+print(slice6)
