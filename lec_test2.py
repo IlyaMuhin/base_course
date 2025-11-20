@@ -7,7 +7,7 @@ for i in range(len1):
 
 def middle(a):
 
-    print(sum(a) / len(a))
+    print(int(np.prod(a)))
 
 middle(a)
 
