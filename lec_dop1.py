@@ -41,6 +41,7 @@ class Castle:
         self.hp = 10000
         self.money = 5000
         self.army = [] 
+castle = Castle(3)
 
 
 class Player:
@@ -49,18 +50,18 @@ class Player:
         print(f'Ваш цвет - {color_list[self.color-1]}, Вы  - Player({self.color})')
     def buy_army(self):
         for i in range(3):
-            print(f'Ваши деньги:{Castle(self.color).money}')
+            print(f'Ваши деньги:{castle.money}')
             self.choice = input(f"Кого вы хотите купить?:{warriors_list}:\n")
             if self.choice == "0":
                 break
             self.kol = int(input("Скоко?: "))
-            if Castle(self.color).money >= Warrior(self.choice,1).price * self.kol:
+            if castle.money >= Warrior(self.choice,1).price * self.kol:
                 print("Успешно!")
                 war = Warrior(self.choice,i+1)
-                Castle(self.color).army.append(war)
-                Castle(self.color).money = Castle(self.color).money - Warrior(self.choice,1).price * self.kol
-                print(Castle(self.color).money-Warrior(self.choice,1).price * self.kol)
-                print(f'Осталось денег:{Castle(self.color).money}')
+                castle.army.append(war)
+                castle.money = Castle(self.color).money - Warrior(self.choice,1).price * self.kol
+                print(castle.money-Warrior(self.choice,1).price * self.kol)
+                print(f'Осталось денег:{castle.money}')
             else:
                 print("Недостаточно денег!")
                 break
@@ -77,6 +78,8 @@ class Hero:
         self.index = index
         self.hp = 500
         self.dmg = 50
+
+
     
 
         
