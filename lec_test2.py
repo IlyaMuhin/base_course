@@ -5,13 +5,13 @@ for i in range(len1):
     a[i] = int(input(f'Введите {i+1} число:'))
 
 
-def middle(a):
+def proizvedenie(a):
     proizv = 1
     for x in range(len1):
         
         proizv *= a[x]
-    print(proizv)
+    print(int(proizv))
 
 
-middle(a)
+proizvedenie(a)
 
