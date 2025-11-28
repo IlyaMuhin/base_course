@@ -32,7 +32,15 @@ class Castle:
             print(f'Ваши деньги:{self.money}')
             self.choice = input(f"Кого вы хотите купить?:{warriors_list}:\n")
             self.kol = int(input('Скоко?:'))
-            
+            if self.choice * self.kol <= Warrior(self.choice, 1).price * self.kol:
+                for i in range(self.kol):
+                    self.army.append(Warrior(self.choice, i+1))
+                    self.money -= Warrior(self.choice, 1).price * self.kol
+                    print(f'Осталось денег:{self.money}')
+red_castle = Castle(1)
+yellow_castle = Castle(2)
+green_castle = Castle(3)
+blue_castle = Castle(4)           
 
 
 
@@ -40,6 +48,20 @@ class Castle:
 
 
 class Player:    
-    def __init__(self, color):
+    def __init__(self,color):
         self.color = color
+    def buy_army(self):
+        if self.color == 1:
+            red_castle.buy_army()
+        elif self.color == 2:
+            yellow_castle.buy_army()
+        elif self.color == 3:
+            green_castle.buy_army()
+        elif self.color == 4:
+            blue_castle.buy_army()
+red_player = Player(1)
+yellow_player = Player(2)
+green_player = Player(3)
+blue_player = Player(4)
+
         
