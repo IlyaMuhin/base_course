@@ -31,13 +31,18 @@ class Castle:
         while True:
             print(f'Ваши деньги:{self.money}')
             self.choice = int(input(f"Кого вы хотите купить?:{warriors_list}:\n"))
+            if self.choice == 0:
+                break
             self.kol = int(input('Скоко?:'))
+            if self.kol == 0:
+                break
             if self.money >= Warrior(warriors_list[self.choice], 1).price * self.kol:
                 for i in range(self.kol):
                     self.army.append(Warrior(warriors_list[self.choice], i+1))
-                    self.money -= Warrior(warriors_list[self.choice], 1).price * self.kol
+                    self.money -= Warrior(warriors_list[self.choice], 1).price
                 print(f'Осталось денег:{self.money}')
             else:
+                print('Недостаточно денег!')
                 break
 red_castle = Castle(1)
 yellow_castle = Castle(2)
