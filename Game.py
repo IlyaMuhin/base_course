@@ -1,5 +1,7 @@
 color_list = {1:'Красный',2:'Желтый',3:'Зеленый',4:'Синий'}
 warriors_list = {1:"Human", 2:"Knight", 3:"Catapult"}
+d_hum = 0
+s_hum = 0
 class Warrior:
     def __init__(self,type, index):
         self.type = type
@@ -72,13 +74,13 @@ class Castle:
                     break
                 if self.money >= Warrior('Human', 1).price * self.kol:
                     for i in range(self.kol):
-                        self.army[f'human{i+1}'] = Warrior('Human', i+1)
+                        self.army[f'human{i}'] = Warrior('Human', i)
                         self.money -= Warrior('Human', 1).price
                     self.human_kol += self.kol
                     for i in range(self.human_kol):
-                        self.army_dmg += self.army[f'human{i+1}'].dmg 
+                        self.army_dmg += self.army[f'human{i}'].dmg 
                     for i in range(self.human_kol):
-                        self.army_hp += self.army[f'human{i+1}'].hp 
+                        self.army_hp += self.army[f'human{i}'].hp 
                     print(f'Осталось денег:{self.money}') 
                 else:
                     print('Недостаточно денег!')
@@ -89,13 +91,13 @@ class Castle:
                     break
                 if self.money >= Warrior('Knight', 1).price * self.kol:
                     for i in range(self.kol):
-                        self.army[f'knight{i+1}'] = Warrior('Knight', i+1)
+                        self.army[f'knight{i}'] = Warrior('Knight', i)
                         self.money -= Warrior('Knight', 1).price
                     self.knight_kol += self.kol
                     for i in range(self.knight_kol):
-                        self.army_dmg += self.army[f'knight{i+1}'].dmg 
+                        self.army_dmg += self.army[f'knight{i}'].dmg 
                     for i in range(self.knight_kol):
-                        self.army_hp += self.army[f'knight{i+1}'].hp 
+                        self.army_hp += self.army[f'knight{i}'].hp 
                     print(f'Осталось денег:{self.money}')
                 else:
                     print('Недостаточно денег!')
@@ -106,13 +108,13 @@ class Castle:
                     break
                 if self.money >= Warrior('Knight', 1).price * self.kol:
                     for i in range(self.kol):
-                        self.army[f'catapult{i+1}'] = Warrior('Catapult', i+1)
+                        self.army[f'catapult{i}'] = Warrior('Catapult', i)
                         self.money -= Warrior('Catapult', 1).price
                     self.catapult_kol += self.kol
                     for i in range(self.catapult_kol):
-                        self.army_dmg += self.army[f'catapult{i+1}'].dmg 
+                        self.army_dmg += self.army[f'catapult{i}'].dmg 
                     for i in range(self.catapult_kol):
-                        self.army_hp += self.army[f'catapult{i+1}'].hp 
+                        self.army_hp += self.army[f'catapult{i}'].hp 
                     print(f'Осталось денег:{self.money}')
                 else:
                     print('Недостаточно денег!')
@@ -218,19 +220,22 @@ class Hero:
             self.choice = int(input('Сколько людей(Human) вы хотите забрать?: '))
             if self.choice <= red_castle.human_kol:
                 for i in range(self.choice):
-                    self.army[f'human{i+1}'] = Warrior('Human', i+1)
+                    self.army[f'human{i+self.human_kol}'] = Warrior('Human', i+self.human_kol)
+                    del red_castle.army[f'human{i+self.human_kol}']
                     red_castle.human_kol -= 1
-                    self.human_kol +=1
+                self.human_kol += self.choice
+                self.army_dmg += Warrior('Human',1).dmg
+                self.army_hp +=  Warrior('Human',1).hp
                     
-                    del red_castle.army[f'human{i+1}']
             else:
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько рыцарей вы хотите забрать?: '))
             if self.choice <= red_castle.knight_kol:
                 for i in range(self.choice):
-                    self.army[f'knight{i+1}'] = Warrior('Knight', i+1)
-                    red_castle.knight_kol -= 1
-                    del red_castle.army[f'knight{i+1}']
+                    self.army[f'knight{i+self.knight_kol}'] = Warrior('Knight', i+self.knight_kol)
+                    del red_castle.army[f'knight{i+self.knight_kol}']
+
+                    
             else:
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько катапульт вы хотите забрать?: '))
@@ -238,7 +243,13 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'catapult{i+1}'] = Warrior('Catapult', i+1)
                     red_castle.catapult_kol -= 1
+                    self.catapult_kol +=1
                     del red_castle.army[f'catapult{i+1}']
+                for i in range(self.catapult_kol):
+                    self.army_dmg += self.army[f'catapult{i+1}'].dmg 
+                for i in range(self.catapult_kol):
+                    self.army_hp += self.army[f'catapult{i+1}'].hp
+                    
             else:
                 print('В вашей армии нет столько воинов!')
         if self.index == 2:
@@ -247,7 +258,12 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'human{i+1}'] = Warrior('Human', i+1)
                     yellow_castle.human_kol -= 1
+                    self.human_kol += 1
                     del yellow_castle.army[f'human{i+1}']
+                for i in range(self.human_kol):
+                    self.army_dmg += self.army[f'human{i+1}'].dmg 
+                for i in range(self.human_kol):
+                    self.army_hp += self.army[f'human{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько рыцарей вы хотите забрать?: '))
@@ -255,7 +271,12 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'knight{i+1}'] = Warrior('Knight', i+1)
                     yellow_castle.knight_kol -= 1
+                    self.knight_kol +=1
                     del yellow_castle.army[f'knight{i+1}']
+                for i in range(self.knight_kol):
+                    self.army_dmg += self.army[f'knight{i+1}'].dmg 
+                for i in range(self.knight_kol):
+                    self.army_hp += self.army[f'knight{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько катапульт вы хотите забрать?: '))
@@ -263,7 +284,12 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'catapult{i+1}'] = Warrior('Catapult', i+1)
                     yellow_castle.catapult_kol -= 1
+                    self.catapult_kol +=1
                     del yellow_castle.army[f'catapult{i+1}']
+                for i in range(self.catapult_kol):
+                    self.army_dmg += self.army[f'catapult{i+1}'].dmg 
+                for i in range(self.catapult_kol):
+                    self.army_hp += self.army[f'catapult{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
         if self.index == 3:
@@ -272,7 +298,12 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'human{i+1}'] = Warrior('Human', i+1)
                     green_castle.human_kol -= 1
+                    self.human_kol += 1
                     del green_castle.army[f'human{i+1}']
+                for i in range(self.human_kol):
+                    self.army_dmg += self.army[f'human{i+1}'].dmg 
+                for i in range(self.human_kol):
+                    self.army_hp += self.army[f'human{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько рыцарей вы хотите забрать?: '))
@@ -280,14 +311,24 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'knight{i+1}'] = Warrior('Knight', i+1)
                     green_castle.knight_kol -= 1
+                    self.knight_kol +=1
                     del green_castle.army[f'knight{i+1}']
+                for i in range(self.knight_kol):
+                    self.army_dmg += self.army[f'knight{i+1}'].dmg 
+                for i in range(self.knight_kol):
+                    self.army_hp += self.army[f'knight{i+1}'].hp
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько катапульт вы хотите забрать?: '))
             if self.choice <= green_castle.catapult_kol:
                 for i in range(self.choice):
                     self.army[f'catapult{i+1}'] = Warrior('Catapult', i+1)
                     green_castle.catapult_kol -= 1
+                    self.catapult_kol +=1
                     del green_castle.army[f'catapult{i+1}']
+                for i in range(self.catapult_kol):
+                    self.army_dmg += self.army[f'catapult{i+1}'].dmg 
+                for i in range(self.catapult_kol):
+                    self.army_hp += self.army[f'catapult{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
         if self.index == 4:
@@ -296,7 +337,12 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'human{i+1}'] = Warrior('Human', i+1)
                     blue_castle.human_kol -= 1
+                    self.human_kol += 1
                     del blue_castle.army[f'human{i+1}']
+                for i in range(self.human_kol):
+                    self.army_dmg += self.army[f'human{i+1}'].dmg 
+                for i in range(self.human_kol):
+                    self.army_hp += self.army[f'human{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько рыцарей вы хотите забрать?: '))
@@ -304,7 +350,12 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'knight{i+1}'] = Warrior('Knight', i+1)
                     blue_castle.knight_kol -= 1
+                    self.knight_kol +=1
                     del blue_castle.army[f'knight{i+1}']
+                for i in range(self.knight_kol):
+                    self.army_dmg += self.army[f'knight{i+1}'].dmg 
+                for i in range(self.knight_kol):
+                    self.army_hp += self.army[f'knight{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
             self.choice = int(input('Сколько катапульт вы хотите забрать?: '))
@@ -312,7 +363,12 @@ class Hero:
                 for i in range(self.choice):
                     self.army[f'catapult{i+1}'] = Warrior('Catapult', i+1)
                     blue_castle.catapult_kol -= 1
+                    self.catapult_kol +=1
                     del blue_castle.army[f'catapult{i+1}']
+                for i in range(self.catapult_kol):
+                    self.army_dmg += self.army[f'catapult{i+1}'].dmg 
+                for i in range(self.catapult_kol):
+                    self.army_hp += self.army[f'catapult{i+1}'].hp
             else:
                 print('В вашей армии нет столько воинов!')
     
@@ -337,8 +393,8 @@ class Hero:
                      ====================================================================
                                                                                                  ''')
             self.choice2 = int(input())
-            if self.choice2 == 1:
-                volves.hp - 
+            # if self.choice2 == 1:
+            #     volves.hp - 
 
             
 
@@ -425,23 +481,40 @@ blue_player = Player(4)
 
 red_player.buy_army()
 print(red_castle.human_kol,red_castle.knight_kol,red_castle.catapult_kol)
+print(red_hero.human_kol,red_hero.knight_kol,red_hero.catapult_kol)
 print(red_castle.army)
 print(red_hero.hp)
 print(red_hero.dmg)
-print(red_castle.hp)
-# red_hero.take_army()
-# print(red_hero.army)
-# print(red_castle.army)
-# print(red_castle.human_kol,red_castle.knight_kol,red_castle.catapult_kol)
-print(red_castle.army_dmg)
-print(red_castle.army_hp)
-red_player.buy_upgrades()
-print(red_castle.army_dmg)
-print(red_castle.army_hp)
+# print(red_castle.hp)
+# # red_hero.take_army()
+print(red_hero.army)
+print(red_hero.army_hp)
+print(red_hero.army_dmg)
+# # print(red_castle.army)
+# # print(red_castle.human_kol,red_castle.knight_kol,red_castle.catapult_kol)
+# print(red_castle.army_dmg)
+# print(red_castle.army_hp)
+# red_player.buy_upgrades()
+# print(red_castle.army_dmg)
+# print(red_castle.army_hp)
+# # red_player.buy_army()
+# print(red_hero.hp)
+# print(red_hero.dmg)
+# print(red_castle.hp)
 # red_player.buy_army()
-print(red_hero.hp)
-print(red_hero.dmg)
-print(red_castle.hp)
-
-
+red_hero.take_army()
+print(red_hero.army)
+print(red_hero.army_hp)
+print(red_hero.army_dmg)
+print(red_castle.human_kol,red_castle.knight_kol,red_castle.catapult_kol)
+print(red_hero.human_kol,red_hero.knight_kol,red_hero.catapult_kol)
+print(red_castle.army)
+red_hero.take_army()
+print(red_castle.human_kol,red_castle.knight_kol,red_castle.catapult_kol)
+print(red_hero.human_kol,red_hero.knight_kol,red_hero.catapult_kol)
+print(red_castle.army)
+red_hero.take_army()
+print(red_castle.human_kol,red_castle.knight_kol,red_castle.catapult_kol)
+print(red_hero.human_kol,red_hero.knight_kol,red_hero.catapult_kol)
+print(red_castle.army)
         
