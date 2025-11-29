@@ -1,7 +1,6 @@
 class Monster:
-    def __init__(self, type,kol):
+    def __init__(self, type):
         self.type = type
-        self.kol = kol
         if self.type == 'peasant':
             self.hp = 50
             self.dmg = 25
