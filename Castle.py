@@ -33,7 +33,8 @@ class Castle:
             self.army[self.type1] -= self.kol1
             self.army_hp -= Monster(self.type1).hp * self.kol1
             self.dmg -= Monster(self.type1).dmg * self.kol1
-
+        else:
+            print('У вас недостаточно воинов!')
 
         
 

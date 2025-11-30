@@ -9,9 +9,9 @@ def npc_stats():
                |   Стая волков    |   Болотный гоблин   |   Пещерный гигант   |    Горный дракон    |
                |====================================================================================|
                |                  |                     |                     |                     |
-               |hp = {volves.hp}  |  hp = {goblin.hp}   |  hp = {giant.hp}    |   hp = {dragon.hp}  |
+               |hp = {volves.hp}          |  hp = {goblin.hp}          |  hp = {giant.hp}          |   hp = {dragon.hp}        |
                |                  |                     |                     |                     |
-               |dmg = {volves.dmg}|  dmg = {goblin.dmg} |  dmg = {giant.dmg}  |   dmg = {dragon.dmg}|
+               |dmg = {volves.dmg}         |  dmg = {goblin.dmg}         |  dmg = {giant.dmg}         |   dmg = {dragon.dmg}       |
                |=====================================================================================
           
           
