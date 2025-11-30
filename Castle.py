@@ -25,12 +25,14 @@ class Castle:
         print(f'Урон вашей армии:{self.dmg}')
         print(f'Здоровье вашей армии:{self.army_hp}')
 
-    def release_army(self,type,kol):
-        self.type = type
-        self.kol = kol
-        if self.army[self.type] >= self.kol:
-            released_army[self.type] += self.kol
-            self.army[self.type] -= self.kol
+    def release_army(self,type1,kol1):
+        self.type1 = type1
+        self.kol1 = kol1
+        if self.army[self.type1] >= self.kol1:
+            released_army[self.type1] += self.kol1
+            self.army[self.type1] -= self.kol1
+            self.army_hp -= Monster(self.type1).hp * self.kol1
+            self.dmg -= Monster(self.type1).dmg * self.kol1
 
 
         
