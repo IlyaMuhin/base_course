@@ -2,6 +2,10 @@ from Monster import Monster
 
 released_army = {'peasant': 0, 'knight': 0, 'catapult': 0}
 
+castle_list = {}
+
+
+
 class Castle:
 
     def __init__(self,color):
@@ -11,7 +15,10 @@ class Castle:
         self.money = 0
         self.army = {'peasant': 0, 'knight': 0, 'catapult': 0}
         self.army_hp = 0
-    
+        castle_list[self.color] = self
+
+
+
     def create_monster(self,type,kol):
         self.type = type
         self.kol = kol
@@ -21,6 +28,7 @@ class Castle:
 
 
     def check_stats(self):
+        print(f'Здоровье вашего замка:{self.hp}')
         print(f'Ваша армия:{self.army}')
         print(f'Урон вашей армии:{self.dmg}')
         print(f'Здоровье вашей армии:{self.army_hp}')
@@ -36,6 +44,6 @@ class Castle:
         else:
             print('У вас недостаточно воинов!')
 
-        
+# red_castle = Castle('red')       
 
 
