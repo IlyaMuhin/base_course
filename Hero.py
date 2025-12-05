@@ -20,6 +20,7 @@ class Hero:
         hero_list[self.color] = self
 
     def check_stats(self):
+        print(f'{self.color}:')
         print(f'Здоровье вашего героя:{self.hp}')
         print(f'Урон вашего героя:{self.dmg}')
         print(f'Армия вашего героя:{self.army}')
@@ -46,6 +47,7 @@ class Hero:
     
 
     def attack_npc(self,type):
+        print(f'{self.color}:')
         self.type = type
         if self.hp > 0:
             npc_list[self.type].hp -= (self.army_dmg + self.dmg)
@@ -71,7 +73,7 @@ class Hero:
                 print(f'У npc осталось {npc_list[self.type].hp} hp')
             elif npc_list[self.type].hp <= 0 and self.hp > 0:
                 npc_list[self.type].hp = NPC(self.type).hp
-                print('Вы выиграли!')
+                print(f'Вы выиграли!')
             elif npc_list[self.type].hp <= 0 and self.hp <= 0:
                 print('Все погибли!')
                 self.hp = 0
@@ -81,12 +83,13 @@ class Hero:
                 print(f'У npc осталось {npc_list[self.type].hp} hp') 
                
         else:
-            print('У вас нет героя!')
+            print(f'У вас нет героя!')
     
 
 
 
     def attack_player(self, player_color):
+        print(f'{self.color}:')
         self.player_color = player_color
         if self.hp > 0:
             castle_list[self.player_color].army_hp -= (self.dmg + self.army_dmg)

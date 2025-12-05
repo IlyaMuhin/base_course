@@ -1,5 +1,5 @@
 from Castle import *
-from Hero import *
+import Hero
 
 
 
@@ -14,13 +14,15 @@ class Player:
 
 
     def check_stats(self):
+ 
         castle_list[self.color].check_stats()
 
 
 
     def create_hero(self):
-        if hero_list[self.color].hp == 0:
-            hero_list[self.color].hp = Hero('').hp
+        print(f'{self.color}:')
+        if Hero.hero_list[self.color].hp == 0:
+            Hero.hero_list[self.color].hp = Hero.Hero('').hp
             print('Герой создан')
         else:
             print('У вас уже есть герой!')

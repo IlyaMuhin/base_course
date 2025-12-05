@@ -20,6 +20,7 @@ class Castle:
 
 
     def create_monster(self,type,kol):
+        print(f'{self.color}:')
         self.type = type
         self.kol = kol
         self.army[self.type] += self.kol
