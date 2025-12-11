@@ -7,5 +7,5 @@ for i in range(m+1):
     print(i)
     for x in range(n+1):
         time.sleep(1)
-        print(x)
+        print(f'\t {x}')
     time.sleep(1)
