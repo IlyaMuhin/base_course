@@ -15,7 +15,7 @@ print(f'Время map = {time.time() - time1}')
 
 
 time2 = time.time()
-list2 = (my_func(num) for num in general_list)
+list2 = [my_func(num) for num in general_list]
 print(f'Время списк.вкл. = {time.time() - time2}')
 
 
