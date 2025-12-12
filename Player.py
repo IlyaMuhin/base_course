@@ -14,7 +14,7 @@ class Player:
 
 
     def check_stats(self):
- 
+        print(f'{self.color}:')
         castle_list[self.color].check_stats()
 
 
