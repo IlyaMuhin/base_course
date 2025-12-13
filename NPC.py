@@ -1,4 +1,4 @@
-npc_list = {}
+# npc_list = {}
 
 
 
@@ -49,7 +49,7 @@ dragon = NPC("dragon")
 
 
 
-npc_list['volves'] = volves
-npc_list['goblin'] = goblin
-npc_list['giant'] = giant
-npc_list['dragon'] = dragon
+# npc_list['volves'] = volves
+# npc_list['goblin'] = goblin
+# npc_list['giant'] = giant
+# npc_list['dragon'] = dragon

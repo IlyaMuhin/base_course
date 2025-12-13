@@ -21,12 +21,23 @@ class Hero:
 
     def check_stats(self):
         print(f'{self.color}:')
-        print(f'Здоровье вашего героя:{self.hp}')
-        print(f'Урон вашего героя:{self.dmg}')
-        print(f'Армия вашего героя:{self.army}')
-        print(f'Урон армии героя:{self.army_dmg}')
-        print(f'Здоровье армии героя:{self.army_hp}')
-        print(f'Общий урон:{self.dmg + self.army_dmg}')
+        print(f''' 
+         ======================================================================
+         |                                Герой                                         
+         ======================================================================
+         |Здоровье вашего героя:{self.hp}                              
+         |Урон вашего героя:{self.dmg}                                 
+         ======================================================================
+         |                             Армия героя                                     
+         ======================================================================
+         |Армия вашего героя:{self.army}                               
+         |Урон армии героя:{self.army_dmg}                             
+         |Здоровье армии героя:{self.army_hp}                          
+         ======================================================================
+         |Общий урон:{self.dmg + self.army_dmg}                        
+         ======================================================================
+              
+              ''')
 
 
     def take_army(self):        
@@ -50,9 +61,9 @@ class Hero:
         print(f'{self.color}:')
         self.type = type
         if self.hp > 0:
-            npc_list[self.type].hp -= (self.army_dmg + self.dmg)
-            self.army_hp -= npc_list[self.type].dmg
-            self.army['peasant'] -= (math.floor(npc_list[self.type].dmg / Monster('peasant').hp))
+            self.type.hp -= (self.army_dmg + self.dmg)
+            self.army_hp -= self.type.dmg
+            self.army['peasant'] -= (math.floor(self.type.dmg / Monster('peasant').hp))
             if self.army['peasant'] < 0:
                 self.army['knight'] += (math.floor((self.army['peasant'] * Monster('peasant').hp) / Monster('knight').hp))
                 self.army['peasant'] = 0
@@ -67,20 +78,20 @@ class Hero:
             if self.army_hp <= 0:
                 self.hp += self.army_hp
                 self.army_hp = 0
-            if self.hp <= 0 and npc_list[self.type].hp > 0:
+            if self.hp <= 0 and self.type.hp > 0:
                 self.hp = 0
                 print('Вы проиграли!')
-                print(f'У npc осталось {npc_list[self.type].hp} hp')
-            elif npc_list[self.type].hp <= 0 and self.hp > 0:
-                npc_list[self.type].hp = NPC(self.type).hp
+                print(f'У npc осталось {self.type.hp} hp')
+            elif self.type.hp <= 0 and self.hp > 0:
+                self.type.hp = NPC(self.type).hp
                 print(f'Вы выиграли!')
-            elif npc_list[self.type].hp <= 0 and self.hp <= 0:
+            elif self.type.hp <= 0 and self.hp <= 0:
                 print('Все погибли!')
                 self.hp = 0
-                npc_list[self.type].hp = NPC(self.type).hp
+                self.type.hp = NPC(self.type).hp
             else:
                 print('Бой закончился ничьёй!')
-                print(f'У npc осталось {npc_list[self.type].hp} hp') 
+                print(f'У npc осталось {self.type.hp} hp') 
                
         else:
             print(f'У вас нет героя!')
@@ -192,3 +203,5 @@ class Hero:
 # # a_hero.check_stats()
 # # b_castle.check_stats()
 # a_hero.attack_player('green')
+# hero = Hero('red')
+# hero.check_stats()
