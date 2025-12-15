@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-b = 0.3
-
 phi = np.arange(0, 8*np.pi, 0.01)
-r = np.exp(b*phi)
+
+k = 0.159
+
+r = k * phi
 
 x = r * np.cos(phi)
 y = r * np.sin(phi)
 
-plt.plot(x,y)
-plt.savefig('test4.png')
+plt.plot(x, y)
+plt.axis('equal')
+plt.savefig('test4.2.png')
