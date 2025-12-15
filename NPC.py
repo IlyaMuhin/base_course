@@ -1,4 +1,4 @@
-# npc_list = {}
+import random
 
 
 
@@ -23,26 +23,40 @@ def npc_stats():
 class NPC:
     def __init__(self,type):
         self.type = type
-        if self.type == "volves":
-            self.hp = 250
-            self.dmg = 225
-            self.price = 375
-        elif self.type == "goblin":
-            self.hp = 1500
-            self.dmg = 2000
-            self.price = 1000
-        elif self.type == "giant":
-            self.hp = 6000
-            self.dmg = 6000
-            self.price = 2500
-        elif self.type == "dragon":
-            self.hp = 45000
-            self.dmg = 15000
-            self.price = 8000
+        # if self.type == "volves":
+        #     self.hp = 250
+        #     self.dmg = 225
+        #     self.price = 375
+        # elif self.type == "goblin":
+        #     self.hp = 1500
+        #     self.dmg = 2000
+        #     self.price = 1000
+        # elif self.type == "giant":
+        #     self.hp = 6000
+        #     self.dmg = 6000
+        #     self.price = 2500
+        # elif self.type == "dragon":
+        #     self.hp = 45000
+        #     self.dmg = 15000
+        #     self.price = 8000
+
+
+def generate_npc():
+    volves.hp = random.randint(200, 300)
+    volves.dmg = random.randint(175, 275)
+    goblin.hp = random.randint(1300, 1700)
+    goblin.dmg = random.randint(1800, 2200)
+    giant.hp = random.randint(6000, 7000)
+    giant.dmg = random.randint(5700, 6300)
+    dragon.hp = random.randint(45000, 55000)
+    dragon.dmg = random.randint(13000, 17000)
+
+        
 
 
 
-volves = NPC('volves')
+
+volves = NPC("volves")
 goblin = NPC("goblin")
 giant = NPC("giant")
 dragon = NPC("dragon")
