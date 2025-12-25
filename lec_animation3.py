@@ -14,9 +14,6 @@ fig, ax = plt.subplots()
 ball, = plt.plot([], [], 'o', color = 'r', label = 'Ball')
 
 
-frames = 180
-coords = np.zeros((frames, 2))
-
 
 def animate(i):
     ball.set_data(circle_move(R = 0.5, vx0 = 0.01, vy0 = 0.01, time = i))

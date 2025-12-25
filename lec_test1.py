@@ -9,7 +9,7 @@ def cicloid_plotter(R = 3):
 
     plt.plot(x, y)
     plt.axis('equal')
-    plt.savefig('test1.png.png')
+    plt.savefig('test1.png')
 
 if __name__ == '__main__':
     cicloid_plotter()

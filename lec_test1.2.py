@@ -9,7 +9,7 @@ def astroid_plotter(R = 10):
 
     plt.plot(x, y)
     plt.axis('equal')
-    plt.savefig('test2.png.png')
+    plt.savefig('test1.2.png')
 
 if __name__ == '__main__':
     astroid_plotter()
