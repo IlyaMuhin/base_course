@@ -2,28 +2,36 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation
 
-def frac_func(x0 = 0.1, y0 = 0.1, C = 0.3, D = 0.33):
-    x = x0**2 - y0**2 + C
-    y = 2 * x0 * y0 + D
-    return x, y 
+x0 = 0.1
+y0 = 0.1
+C = 0.3
+D = 0.33
+
+x,y = [x0], [y0]
+
+for n in range(1, 100):
+    x.append(x[n - 1]**2 - y[n - 1]**2 + C)
+    y.append(2 * x[n-1] * y[n-1] + D)
 
 fig, ax = plt.subplots()
-points, = plt.plot([], [], 'o', color = 'r', label = 'Ball')
 
 
-frames = 180
-coords = np.zeros((frames, 2))
+anim_object, = plt.plot([], [], 'o', lw = 2) #iОбъект анимации
 
 
-def animate(i):
-    
-    points.set_data([coords[i][0]], [coords[i][1]])
-    return points
+frames_interval= np.linspace(0, 99, 99)
+ax.set_xlim(-1, 1)#Пределы изменений переменной X
+ax.set_ylim(-1, 1)#Пределы изменений переменной Y
 
-edge = 3
-plt.axis('equal')
-ax.set_xlim(-edge, edge)
-ax.set_ylim(-edge, edge)
+#Функция перестановки параметра в объект анимации
+def update(frame):
+    anim_object.set_data([x[:frame:]], [y[:frame:]])
+    return anim_object
 
-ani = FuncAnimation(fig, animate, frames = frames, interval = 30)
-ani.save('animation_2.gif', writer = 'pillow')
+ani = FuncAnimation(fig,#Вызов пространства для анимации
+                    update,#Вызов функции подстановки координат
+                    frames = 99,#Интервал значений
+                    interval = 30)#Интервал между кадрами
+                                  #по умолчанию 200 милисекунд
+
+ani.save('test4.gif', writer = 'pillow')
