@@ -23,7 +23,7 @@ def animate(i):
     ball_line.set_data(coords[:i, 0], coords[:i, 1])
     return  ball_line
 
-edge = 5
+edge = 2
 plt.axis('equal')
 ax.set_xlim(-edge, edge)
 ax.set_ylim(-edge, edge)
