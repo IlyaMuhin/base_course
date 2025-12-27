@@ -16,7 +16,7 @@ for n in range(1, 100):
 fig, ax = plt.subplots()
 
 
-anim_object, = plt.plot([], [], 'o', lw = 2) #iОбъект анимации
+anim_object, = plt.plot([], [], '-', lw = 2) #iОбъект анимации
 
 
 frames_interval= np.linspace(0, 99, 99)

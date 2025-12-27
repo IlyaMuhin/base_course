@@ -21,14 +21,14 @@ coords = np.zeros((frames, 2))
 
 
 def animate(alpha):
-    X = (x+ 10) * np.cos(alpha) - (y+10) * np.sin(alpha)
+    X = (x+10) * np.cos(alpha) - (y+10) * np.sin(alpha)
     Y =  x * np.sin(alpha) + y * np.cos(alpha)
     star.set_data(X, Y)
 
 
 
 
-edge = 25
+edge = 30
 plt.axis('equal')
 ax.set_xlim(-edge, edge)
 ax.set_ylim(-edge, edge)
