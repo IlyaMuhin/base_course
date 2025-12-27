@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import imageio
+import imageio.v2 as imageio
 import os
 
 fig,ax = plt.subplots(subplot_kw = {'projection': '3d'})
@@ -14,7 +14,7 @@ theta = np.linspace(0, np.pi, 100)
 def animate(R):
     x = R * np.outer(np.sin(phi), np.cos(theta))
     y = R * np.outer(np.sin(phi), np.sin(theta))
-    z = R * np.outer(np.sin(phi), np.ones(np.size(theta)))
+    z = R * np.outer(np.cos(phi), np.ones(np.size(theta)))
     return x, y, z
 
 for i in range(N):
@@ -30,12 +30,12 @@ for i in range(N):
 
     x, y, z = animate(edge/N*i)
     ax.plot_surface(x, y, z, color = 'b')
-    plt.savefig(f'pic_{i}')
+    plt.savefig(f'pic_{i}.png')
 
-    #Создание анимации из отдельных кадров
-    images = []
-    filenames = [f'pic_{i}.png' for i in range(N)]
-    for filename in filenames:
-        images.append(imageio.imread(filename))
-        os.remove(filename)
-    imageio.mimsave('movie.gif', images)
+#Создание анимации из отдельных кадров
+images = []
+filenames = [f'pic_{i}.png' for i in range(N)]
+for filename in filenames:
+    images.append(imageio.imread(filename))
+    os.remove(filename)
+imageio.mimsave('movie.gif', images)
