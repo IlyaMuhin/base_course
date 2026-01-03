@@ -29,7 +29,7 @@ for i in range(N):
     ax.set_zlabel('Z')
 
     x, y, z = animate(edge/N*i)
-    ax.plot_surface(x, y, z, color = 'b')
+    ax.plot_surface(x, y, z)
     plt.savefig(f'pic_{i}.png')
 
 #Создание анимации из отдельных кадров
