@@ -1,4 +1,5 @@
 import math
+import time
 from Player import *
 from Castle import *
 from Monster import Monster
@@ -57,7 +58,7 @@ class Hero:
         released_army['catapult'] = 0
     
 
-    def attack_npc(self,type):
+    def instant_attack_npc(self,type):
         print(f'{self.color}:')
         self.type = type
         if self.hp > 0:
@@ -99,7 +100,7 @@ class Hero:
 
 
 
-    def attack_player(self, player_color):
+    def instant_attack_player(self, player_color):
         print(f'{self.color}:')
         self.player_color = player_color
         if self.hp > 0:
@@ -165,20 +166,67 @@ class Hero:
                 print(f'У замка игрока осталось {castle_list[self.player_color].hp} hp')
         else:
             print('У вас нет героя!')
+        
+    def attack_npc(self,type):
+        print(f'{self.color}:')
+        self.type = type
+        if self.hp > 0:
+            while self.hp > 0 or self.type.hp > 0:
+                print(f'''{self.hp} vs {self.type.hp}
+                          {self.dmg} vs {self.type.dmg}
+
+
+                                     ''')
+                self.type.hp -= (self.army_dmg + self.dmg)
+                self.army_hp -= self.type.dmg
+                self.army['peasant'] -= (math.floor(self.type.dmg / Monster('peasant').hp))
+                if self.army['peasant'] < 0:
+                    self.army['knight'] += (math.floor((self.army['peasant'] * Monster('peasant').hp) / Monster('knight').hp))
+                    self.army['peasant'] = 0
+                if self.army['knight'] < 0:
+                    self.army['catapult'] += (math.floor((self.army['knight'] * Monster('knight').hp) / Monster('catapult').hp))
+                    self.army['knight'] = 0 
+                if self.army['catapult'] < 0:
+                    self.army['catapult'] = 0 
+                self.army_dmg = Monster('peasant').dmg * self.army['peasant']
+                self.army_dmg += Monster('knight').dmg * self.army['knight'] 
+                self.army_dmg += Monster('catapult').dmg * self.army['catapult']          
+                if self.army_hp <= 0:
+                    self.hp += self.army_hp
+                    self.army_hp = 0
+                time.sleep(0.5)
+                
+            if self.hp <= 0 and self.type.hp > 0:
+                self.hp = 0
+                print('Вы проиграли!')
+                print(f'У npc осталось {self.type.hp} hp')
+            elif self.type.hp <= 0 and self.hp > 0:
+                self.type.hp = NPC(self.type).hp
+                print(f'Вы выиграли!')
+            elif self.type.hp <= 0 and self.hp <= 0:
+                print('Все погибли!')
+                self.hp = 0
+                self.type.hp = NPC(self.type).hp
+ 
+                
+        else:
+            print(f'У вас нет героя!')
+
 
         
-# my_castle = Castle('green')
-# my_castle.create_monster('peasant', 5)
-# my_castle.create_monster('knight', 4)
-# my_castle.create_monster('catapult',2)
-# my_hero = Hero('green')
-# my_castle.release_army('peasant',4)
-# my_castle.release_army('knight', 3)
-# my_castle.release_army('catapult',1)
-# my_hero.take_army()
+        
+my_castle = Castle('green')
+my_castle.create_monster('peasant', 5)
+my_castle.create_monster('knight', 4)
+my_castle.create_monster('catapult',2)
+my_hero = Hero('green')
+my_castle.release_army('peasant',5)
+my_castle.release_army('knight', 4)
+my_castle.release_army('catapult',2)
+my_hero.take_army()
 # my_hero.check_stats()
 # npc_stats()
-# my_hero.attack_npc('goblin')
+my_hero.attack_npc(goblin)
 # my_hero.attack_npc('goblin')
 # npc_stats()
 
