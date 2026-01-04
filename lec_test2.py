@@ -1,3 +1,22 @@
 def decorator(func):
     def f(num1, num2, sign):
-        number1 = 
+        num1,num2,sign = func(num1, num2, sign)
+        if sign == '+':
+            print(num1 + num2)
+        elif sign == '-':
+            print(num1 - num2)
+        elif sign == '*':
+            print(num1 * num2)
+        elif sign == '/':
+            print(num1 / num2)
+    return f
+    
+
+@decorator
+def two_variables(num1, num2, sign):
+    return num1, num2, sign
+
+
+two_variables(8,5,'+')
+    
+    
