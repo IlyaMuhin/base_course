@@ -7,6 +7,9 @@ players_list = {}
 
 
 
+
+
+
 class Player:
     def __init__(self, color):
         self.color = color
@@ -26,6 +29,12 @@ class Player:
             print('Герой создан')
         else:
             print('У вас уже есть герой!')
+
+
+
+
+
+
 
 
 

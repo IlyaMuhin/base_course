@@ -19,37 +19,30 @@ def npc_stats():
     
 
 
+def generate_difficulty(func):
+    def f(difficulty):
+        volves.hp = random.randint(200, 300) * func(difficulty)
+        volves.dmg = random.randint(175, 275) * func(difficulty)
+        goblin.hp = random.randint(1300, 1700) * func(difficulty)
+        goblin.dmg = random.randint(1800, 2200) * func(difficulty)
+        giant.hp = random.randint(6000, 7000) * func(difficulty)
+        giant.dmg = random.randint(5700, 6300) * func(difficulty)
+        dragon.hp = random.randint(45000, 55000) * func(difficulty)
+        dragon.dmg = random.randint(13000, 17000) * func(difficulty)
+        npc_stats()
+    return f
+
 
 class NPC:
-    def __init__(self,type):
+    def __init__(self,type, hp = 0, dmg = 0):
         self.type = type
-        # if self.type == "volves":
-        #     self.hp = 250
-        #     self.dmg = 225
-        #     self.price = 375
-        # elif self.type == "goblin":
-        #     self.hp = 1500
-        #     self.dmg = 2000
-        #     self.price = 1000
-        # elif self.type == "giant":
-        #     self.hp = 6000
-        #     self.dmg = 6000
-        #     self.price = 2500
-        # elif self.type == "dragon":
-        #     self.hp = 45000
-        #     self.dmg = 15000
-        #     self.price = 8000
+        self.hp = hp
+        self.dmg = dmg
 
 
-def generate_npc():
-    volves.hp = random.randint(200, 300)
-    volves.dmg = random.randint(175, 275)
-    goblin.hp = random.randint(1300, 1700)
-    goblin.dmg = random.randint(1800, 2200)
-    giant.hp = random.randint(6000, 7000)
-    giant.dmg = random.randint(5700, 6300)
-    dragon.hp = random.randint(45000, 55000)
-    dragon.dmg = random.randint(13000, 17000)
+@generate_difficulty
+def generate_npc(difficulty):
+    return difficulty
 
         
 
@@ -61,9 +54,5 @@ goblin = NPC("goblin")
 giant = NPC("giant")
 dragon = NPC("dragon")
 
+generate_npc(5)
 
-
-# npc_list['volves'] = volves
-# npc_list['goblin'] = goblin
-# npc_list['giant'] = giant
-# npc_list['dragon'] = dragon
