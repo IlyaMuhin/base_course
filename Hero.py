@@ -170,7 +170,7 @@ class Hero:
     def attack_npc(self,type):
         print(f'{self.color}:')
         self.type = type
-        if self.hp > 0:
+        if self.hp > 0 or self.type.hp > 0:
             while self.hp > 0 or self.type.hp > 0:
                 print(f'''{self.hp} vs {self.type.hp}
                           {self.dmg} vs {self.type.dmg}
@@ -220,9 +220,9 @@ my_castle.create_monster('peasant', 5)
 my_castle.create_monster('knight', 4)
 my_castle.create_monster('catapult',2)
 my_hero = Hero('green')
-my_castle.release_army('peasant',5)
-my_castle.release_army('knight', 4)
-my_castle.release_army('catapult',2)
+my_castle.release_army('peasant',1)
+# my_castle.release_army('knight', 4)
+# my_castle.release_army('catapult',2)
 my_hero.take_army()
 # my_hero.check_stats()
 # npc_stats()
