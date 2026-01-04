@@ -1,6 +1,5 @@
 def decorator(func):
     def f(num1, num2, sign):
-        num1,num2,sign = func(num1, num2, sign)
         if sign == '+':
             print(num1 + num2)
         elif sign == '-':
