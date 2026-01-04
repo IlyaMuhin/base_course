@@ -1,6 +1,6 @@
 import time
 
-def decorator(func):
+def timer(func):
     def f(N):
         time1 = time.time()
         func(N)
@@ -8,7 +8,7 @@ def decorator(func):
     return f
 
 
-@decorator
+@timer
 def cycle(N):
     for i in range(N):
         x = 1
@@ -16,7 +16,7 @@ def cycle(N):
 
 cycle(50)
 
-@decorator
+@timer
 def printer(N):
     print(f'Число - {N}')
 
