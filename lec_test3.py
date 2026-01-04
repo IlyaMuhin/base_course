@@ -21,9 +21,6 @@ def my_func(num):
 debug_my_func = debug(my_func)
 
 
-# @debug
-# def debug_factorial():
-#     return math.factorial
 
 
 def show_debug_function(terms = 5):
