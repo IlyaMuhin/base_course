@@ -4,7 +4,7 @@ def decorator(func):
     def f(N):
         time1 = time.time()
         func(N)
-        print(time.time() - time1)
+        print(f'Время выполнения функции: {time.time() - time1} секунд')
     return f
 
 
