@@ -4,7 +4,7 @@ def timer(func):
     def f(N):
         time1 = time.time()
         func(N)
-        print(f'Время выполнения функции: {time.time() - time1} секунд')
+        print(f'Время выполнения функции {func.__name__}: {time.time() - time1} секунд')
     return f
 
 
