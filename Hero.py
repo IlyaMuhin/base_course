@@ -172,8 +172,8 @@ class Hero:
         self.type = type
         if self.hp > 0 or self.type.hp > 0:
             while self.hp > 0 or self.type.hp > 0:
-                print(f'''{self.hp} vs {self.type.hp}
-                          {self.dmg} vs {self.type.dmg}
+                print(f'''{self.hp + self.army_hp} vs {self.type.hp}
+                          {self.dmg + self.army_dmg} vs {self.type.dmg}
 
 
                                      ''')
@@ -194,6 +194,9 @@ class Hero:
                 if self.army_hp <= 0:
                     self.hp += self.army_hp
                     self.army_hp = 0
+                if self.hp <= 0:
+                    self.hp = 0
+                    break
                 time.sleep(0.5)
                 
             if self.hp <= 0 and self.type.hp > 0:
@@ -221,6 +224,7 @@ my_castle.create_monster('knight', 4)
 my_castle.create_monster('catapult',2)
 my_hero = Hero('green')
 my_castle.release_army('peasant',1)
+generate_npc(1)
 # my_castle.release_army('knight', 4)
 # my_castle.release_army('catapult',2)
 my_hero.take_army()
