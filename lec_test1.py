@@ -25,7 +25,11 @@ class Buisnessman:
 
     def _make_deal(self,business,price):
         self.business = business
-        self.price = 
+        self.price = price
+
+
+    def buy_business(self,business,skidka):
+        
 
 
     
