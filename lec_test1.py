@@ -1,2 +1,20 @@
 class Buisnessman:
+    def_name = 'Ilya'
+    def_age = 30
+
+
+    def __init__(self, name = def_name, age = def_age):
+        self.name = name
+        self.age = age
+        self._money = 
+        self._business = False
     
+
+    def info(self):
+        print(f'Имя: {self.name}')
+        print(f'Возраст: {self.age}')
+        print(f'Капитал: {self._money}')
+        print(f'Наличие бизнесса: {self._business}')
+
+    def def_info(self):
+        print(def_name)
