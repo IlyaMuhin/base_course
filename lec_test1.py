@@ -16,5 +16,14 @@ class Buisnessman:
         print(f'Капитал: {self._money}')
         print(f'Наличие бизнесса: {self._business}')
 
-    def def_info(self):
+
+    @staticmethod
+    def def_info(def_name = def_name,def_age = def_age):
         print(def_name)
+        print(def_age)
+
+
+    def _make_deal()
+
+
+    
