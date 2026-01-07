@@ -22,14 +22,18 @@ class Buisnessman:
         print(def_name)
         print(def_age)
 
+    
+    
+
 
     def _make_deal(self,business,price):
         self.business = business
         self.price = price
+        self._money -= 
 
 
     def buy_business(self,business,skidka):
-        
+
 
 
     
