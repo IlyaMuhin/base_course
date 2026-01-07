@@ -1,5 +1,10 @@
-def func():
-    return 2
+class Ball:
+    def __init__(self,color):
+        self.color = color
 
-print(func.__name__)
-print(type(func.__name__))
+    def name(self):
+        print(self.__name__)
+
+
+ball1 = Ball('red')
+ball1.name()
