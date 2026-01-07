@@ -23,17 +23,27 @@ class Buisnessman:
         print(def_age)
 
     
-    
 
 
     def _make_deal(self,business,price):
         self.business = business
         self.price = price
-        self._money -= 
+        self._money -= self.price
+        self._business = True
 
 
     def buy_business(self,business,skidka):
+        self.business = business
+        self.skidka = skidka
+
+
+    def earn_money(self):
+        self._money += 100000
 
 
 
     
+ff = Buisnessman()
+ff._make_deal('adasda', 100000)
+print(ff._money)
+print(ff._business)
