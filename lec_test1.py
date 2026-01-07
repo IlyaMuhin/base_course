@@ -6,7 +6,7 @@ class Buisnessman:
     def __init__(self, name = def_name, age = def_age):
         self.name = name
         self.age = age
-        self._money = 
+        self._money = 100000
         self._business = False
     
 
@@ -23,7 +23,9 @@ class Buisnessman:
         print(def_age)
 
 
-    def _make_deal()
+    def _make_deal(self,business,price):
+        self.business = business
+        self.price = 
 
 
     
