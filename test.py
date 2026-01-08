@@ -3,7 +3,7 @@ class Ball:
         self.color = color
 
     def name(self):
-        print(self.__name__)
+        print(self.__class__.__name__)
 
 
 ball1 = Ball('red')

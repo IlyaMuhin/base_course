@@ -29,17 +29,34 @@ class Buisnessman:
         self.business = business
         self.price = price
         self._money -= self.price
-        self._business = True
+        self._business = business
 
 
-    def buy_business(self,business,skidka):
-        self.business = business
+    def buy_business(self,house,skidka):
+        self.house = house
         self.skidka = skidka
+
 
 
     def earn_money(self):
         self._money += 100000
 
+
+class Business:
+    def __init__(self, _area, _price):
+            self._area = _area
+            self._price = _price
+    
+
+    def final_price(self,skidka):
+        self.skidka = skidka
+        self._price = self._price * (100 - self.skidka) / 100
+    
+
+
+class RestarauntBusiness:
+    def __init__(self):
+        
 
 
     
