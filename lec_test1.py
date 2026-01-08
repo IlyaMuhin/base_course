@@ -34,9 +34,9 @@ class Businessman:
 
     def buy_business(self,house,skidka):
         self.house = house
-        self.skidka = skidka      
+        self.skidka = skidka 
+        restaraunt.final_price(skidka)     
         if self._money >= restaraunt._price: 
-            restaraunt.final_price(skidka)
             self._make_deal(house,restaraunt._price)           
         else:
             print('Недостаточно денег!')
@@ -57,7 +57,7 @@ class Business:
 
     def final_price(self,skidka):
         self.skidka = skidka
-        self._price = self._price * (100 - self.skidka) / 100
+        self._price = int(self._price * (100 - self.skidka) / 100)
 
     def buy_business(self,skidka):
         self.skidka = skidka
@@ -74,10 +74,6 @@ Businessman.def_info()
 businessman = Businessman()
 businessman.info()
 restaraunt = RestarauntBusiness()
-businessman.buy_business('restaraunt', 50)
-# businessman.earn_money()
-# print(businessman._money)
-# print(restaraunt._price)
-# businessman.info()
-# businessman.buy_business('restaraunt', 0)
-# businessman.info()
+
+businessman.buy_business('restaraunt', 100)
+businessman.info()
