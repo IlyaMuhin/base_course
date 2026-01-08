@@ -6,7 +6,7 @@ class Buisnessman:
     def __init__(self, name = def_name, age = def_age):
         self.name = name
         self.age = age
-        self._money = 100000
+        self._money = 10000000
         self._business = False
     
 
@@ -38,8 +38,9 @@ class Buisnessman:
 
 
 
+
     def earn_money(self):
-        self._money += 100000
+        self._money += 10000000
 
 
 class Business:
@@ -51,16 +52,18 @@ class Business:
     def final_price(self,skidka):
         self.skidka = skidka
         self._price = self._price * (100 - self.skidka) / 100
+
+    def buy_business(self, )
     
 
 
-class RestarauntBusiness:
+class RestarauntBusiness(Business):
     def __init__(self):
-        
+        super().__init__(_area = 50000000, _price = 20000000)    
 
 
     
 ff = Buisnessman()
-ff._make_deal('adasda', 100000)
+ff._make_deal('adasda', 10000000)
 print(ff._money)
 print(ff._business)
