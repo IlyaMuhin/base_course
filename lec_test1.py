@@ -1,4 +1,4 @@
-class Buisnessman:
+class Businessman:
     def_name = 'Ilya'
     def_age = 30
 
@@ -7,7 +7,7 @@ class Buisnessman:
         self.name = name
         self.age = age
         self._money = 10000000
-        self._business = False
+        self._business = 'Нету'
     
 
     def info(self):
@@ -19,8 +19,8 @@ class Buisnessman:
 
     @staticmethod
     def def_info(def_name = def_name,def_age = def_age):
-        print(def_name)
-        print(def_age)
+        print(f'Имя:{def_name}')
+        print(f'Возраст:{def_age}')
 
     
 
@@ -29,12 +29,18 @@ class Buisnessman:
         self.business = business
         self.price = price
         self._money -= self.price
-        self._business = business
+        self._business = self.business
 
 
     def buy_business(self,house,skidka):
         self.house = house
-        self.skidka = skidka
+        self.skidka = skidka      
+        if self._money >= restaraunt._price: 
+            restaraunt.final_price(skidka)
+            self._make_deal(house,restaraunt._price)           
+        else:
+            print('Недостаточно денег!')
+
 
 
 
@@ -53,7 +59,9 @@ class Business:
         self.skidka = skidka
         self._price = self._price * (100 - self.skidka) / 100
 
-    def buy_business(self, )
+    def buy_business(self,skidka):
+        self.skidka = skidka
+
     
 
 
@@ -62,8 +70,14 @@ class RestarauntBusiness(Business):
         super().__init__(_area = 50000000, _price = 20000000)    
 
 
-    
-ff = Buisnessman()
-ff._make_deal('adasda', 10000000)
-print(ff._money)
-print(ff._business)
+Businessman.def_info()
+businessman = Businessman()
+businessman.info()
+restaraunt = RestarauntBusiness()
+businessman.buy_business('restaraunt', 50)
+# businessman.earn_money()
+# print(businessman._money)
+# print(restaraunt._price)
+# businessman.info()
+# businessman.buy_business('restaraunt', 0)
+# businessman.info()

@@ -3,8 +3,12 @@ class Ball:
         self.color = color
 
     def name(self):
-        print(self.__class__.__name__)
+        print(1)
+
+class Goal(Ball):
+    def __init__(self,color):
+        super().__init__(color = color)
 
 
-ball1 = Ball('red')
-ball1.name()
+goal = Goal("red")
+goal.name()   
