@@ -25,19 +25,18 @@ class Businessman:
     
 
 
-    def _make_deal(self,business,price):
+    def _make_deal(self,business):
         self.business = business
-        self.price = price
-        self._money -= self.price
-        self._business = self.business
+        self._money -= business._price
+        self._business = 'Есть'
 
 
-    def buy_business(self,house,skidka):
-        self.house = house
+    def buy_business(self,business,skidka):
+        self.business = business
         self.skidka = skidka 
-        restaraunt.final_price(skidka)     
-        if self._money >= restaraunt._price: 
-            self._make_deal(house,restaraunt._price)           
+        business.final_price(skidka)     
+        if self._money >= self.business._price: 
+            self._make_deal(business)           
         else:
             print('Недостаточно денег!')
 
@@ -66,14 +65,15 @@ class Business:
 
 
 class RestarauntBusiness(Business):
-    def __init__(self):
-        super().__init__(_area = 50000000, _price = 20000000)    
+    def __init__(self,price):
+        super().__init__(_area = 50000000, _price = price)    
 
 
 Businessman.def_info()
 businessman = Businessman()
 businessman.info()
-restaraunt = RestarauntBusiness()
+cafe = Business(2342135125,15252567)
+restaraunt = RestarauntBusiness(10000000000000000000000000000000)
 
-businessman.buy_business('restaraunt', 100)
+businessman.buy_business(cafe, 100)
 businessman.info()
