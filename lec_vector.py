@@ -14,7 +14,7 @@ y = R * np.sin(t)
 z = R * np.log10(t)
 
 #Построение пространственной кривой
-ax.plot(x, y, z)
+ax.plot(x, y, z, label = 'Dich')
 
 ax.legend()
 

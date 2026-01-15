@@ -8,8 +8,8 @@ fig,ax = plt.subplots(subplot_kw = {'projection': '3d'})
 
 N = 100
 edge = 10
-phi = np.linspace(0, 2 * np.pi, 100)
-theta = np.linspace(0, np.pi, 100)
+phi = np.linspace(0, 2 * np.pi, N)
+theta = np.linspace(0, np.pi, N)
 
 def animate(R):
     x = R * np.outer(np.sin(phi), np.cos(theta))
