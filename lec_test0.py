@@ -22,23 +22,28 @@ class Planet:
 
 
 class Table:
-    def __init__(self, columns):
-        self.columns = columns
+    def __init__(self, lines):
+        self.lines = lines
 
     def __mul__(self, other):
-        return self.columns * other
+        return self.lines * other
     
     def __add__(self, other):
-        return self.columns + other
+        return self.lines + other
+
+    def __sub__(self, other):
+        return self.lines - other
+    
+    def __truediv__(self, other):
+        return int(self.lines / other)
     
     @property
     def show(self):
         print(' ==================================')
-        for i in range(self.columns):
+        for i in range(self.lines):
             print('|                                  |')
-            print('|==================================|')
-        print('|                                  |')
-        print(' ==================================')
+            print(' ==================================')
+
 
 
     
@@ -51,5 +56,6 @@ pl2 = Planet(4)
 print(pl1 <= pl2)
 
 table1 = Table(3)
-table2 = Table(table1 + 10)
+table2 = Table(table1 * 2)
+print(table2.lines)
 table2.show
