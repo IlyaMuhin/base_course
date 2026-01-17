@@ -57,5 +57,4 @@ print(pl1 <= pl2)
 
 table1 = Table(3)
 table2 = Table(table1 * 2)
-print(table2.lines)
 table2.show

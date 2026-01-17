@@ -3,16 +3,16 @@ class Kletki:
         self.kol = kol
 
     def __add__(self, other):
-        return self.kol + other
+        return Kletki(self.kol + other)
     
     def __sub__(self, other):
-        return self.kol - other
+        return Kletki(self.kol - other)
     
     def __mul__(self, other):
-        return self.kol * other
+        return Kletki(self.kol * other)
     
     def __truediv__(self, other):
-        return int(self.kol / other)
+        return Kletki(int(self.kol / other))
     
     @property
     def info(self):
@@ -20,5 +20,5 @@ class Kletki:
     
 
 jar1 = Kletki(8)
-jar2 =  Kletki(jar1 - 3)
+jar2 = jar1 - 3
 jar2.info
