@@ -1,0 +1,56 @@
+2026-02-14 11:50:16,732 DEBUG:Значение переменной 1: 10
+2026-02-14 11:50:16,732 DEBUG:Значение переменной 2: Hello, world!
+2026-02-14 11:50:16,732 ERROR:Произошло исключение: division by zero
+Traceback (most recent call last):
+  File "/workspaces/base_course/lec_logger.py", line 15, in log_variables_and_exceptions
+    result = a / 0  # Деление на ноль для вызова ZeroDivisionError
+             ~~^~~
+ZeroDivisionError: division by zero
+2026-02-14 11:50:21,705 DEBUG:Значение переменной 1: 10
+2026-02-14 11:50:21,705 DEBUG:Значение переменной 2: Hello, world!
+2026-02-14 11:50:21,705 ERROR:Произошло исключение: division by zero
+Traceback (most recent call last):
+  File "/workspaces/base_course/lec_logger.py", line 15, in log_variables_and_exceptions
+    result = a / 0  # Деление на ноль для вызова ZeroDivisionError
+             ~~^~~
+ZeroDivisionError: division by zero
+2026-02-14 11:51:04,244 DEBUG:Значение переменной 1: 10
+2026-02-14 11:51:04,244 DEBUG:Значение переменной 2: Hello, world!
+2026-02-14 11:51:04,244 ERROR:Произошло исключение: division by zero
+Traceback (most recent call last):
+  File "/workspaces/base_course/lec_logger.py", line 15, in log_variables_and_exceptions
+    result = a / 0  # Деление на ноль для вызова ZeroDivisionError
+             ~~^~~
+ZeroDivisionError: division by zero
+2026-02-14 11:52:25,694 DEBUG:Значение переменной 1: 10
+2026-02-14 11:52:25,694 DEBUG:Значение переменной 2: Hello, world!
+2026-02-14 11:52:25,695 ERROR:Произошло исключение: division by zero
+Traceback (most recent call last):
+  File "/workspaces/base_course/lec_logger.py", line 15, in log_variables_and_exceptions
+    result = a / 0  # Деление на ноль для вызова ZeroDivisionError
+             ~~^~~
+ZeroDivisionError: division by zero
+2026-02-14 11:52:26,761 DEBUG:Значение переменной 1: 10
+2026-02-14 11:52:26,761 DEBUG:Значение переменной 2: Hello, world!
+2026-02-14 11:52:26,761 ERROR:Произошло исключение: division by zero
+Traceback (most recent call last):
+  File "/workspaces/base_course/lec_logger.py", line 15, in log_variables_and_exceptions
+    result = a / 0  # Деление на ноль для вызова ZeroDivisionError
+             ~~^~~
+ZeroDivisionError: division by zero
+2026-02-14 11:52:27,643 DEBUG:Значение переменной 1: 10
+2026-02-14 11:52:27,643 DEBUG:Значение переменной 2: Hello, world!
+2026-02-14 11:52:27,643 ERROR:Произошло исключение: division by zero
+Traceback (most recent call last):
+  File "/workspaces/base_course/lec_logger.py", line 15, in log_variables_and_exceptions
+    result = a / 0  # Деление на ноль для вызова ZeroDivisionError
+             ~~^~~
+ZeroDivisionError: division by zero
+2026-02-14 11:52:28,729 DEBUG:Значение переменной 1: 10
+2026-02-14 11:52:28,729 DEBUG:Значение переменной 2: Hello, world!
+2026-02-14 11:52:28,729 ERROR:Произошло исключение: division by zero
+Traceback (most recent call last):
+  File "/workspaces/base_course/lec_logger.py", line 15, in log_variables_and_exceptions
+    result = a / 0  # Деление на ноль для вызова ZeroDivisionError
+             ~~^~~
+ZeroDivisionError: division by zero
